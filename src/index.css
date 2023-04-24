@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --gruve-dark-blue: #001122;
+  --gruve-midtone-blue: #1b223d;
+  --gruve-light-blue: #edf3f9;
+  --gruve-violet: #6c3965;
+  --gruve-pink: #c15167;
+  --gruve-orange: #f5874d;
+  --gruve-yellow: #fbae3c;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+}
+
+.dark {
+  background: url("/public/gruveBackgroundDark.svg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-color: var(--gruve-dark-blue);
+}
+
+.light {
+  background: url("/public/gruveBackgroundLight.svg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-color: var(--gruve-light-blue);
+}
+
+@media screen and (max-width: 600px) {
+  body.dark {
+    background: url("/public/gruveBackgroundDark-mobile.svg") no-repeat center
+      center fixed;
+    background-size: cover;
+    background-color: var(--gruve-dark-blue);
+  }
+
+  body.light {
+    background: url("/public/gruveBackgroundLight-mobile.svg") no-repeat center
+      center fixed;
+    background-size: cover;
+    background-color: var(--gruve-light-blue);
+  }
 }

@@ -1,0 +1,66 @@
+.header__container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 1.5em;
+}
+
+.logo__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: inherit;
+  align-items: inherit;
+  gap: 0.5em;
+}
+
+.header__button {
+  cursor: pointer;
+  font-size: 2em;
+  height: fit-content;
+  width: fit-content;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  transition: 0.75s ease-in-out;
+}
+
+.header__button:hover {
+  transform: translateY(-0.25em);
+  filter: invert(0.25);
+}
+
+.cart {
+  position: relative;
+}
+
+.cart__counter {
+  position: absolute;
+  text-align: center;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+  font-size: 0.4em;
+  left: 2em;
+  top: -1.4em;
+}
+
+.counter__dark {
+    color: var(--gruve-light-blue);
+    background-color: var(--gruve-dark-blue);
+}
+
+.counter__light {
+    color: var(--gruve-dark-blue);
+    background-color: var(--gruve-light-blue);
+}
+
+.img {
+  height: 15em;
+  border-radius: 10px;
+  margin-inline: 10em;
+  margin-block: 5em;
+}

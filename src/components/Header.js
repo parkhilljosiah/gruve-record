@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../assets/stylesheets/Header.css";
+import { ShopContext } from "../context/ShopContext";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function Header() {
   let [theme, setTheme] = useState(true);
-  let [count, setCount] = useState(0);
+
+  let navigate = useNavigate();
+  let { cartItems } = useContext(ShopContext);
+
+  function handleSum(obj) {
+    let sum = Object.keys(obj).reduce(
+      (sum, key) => sum + parseFloat(obj[key] || 0),
+      0
+    );
+
+    return sum;
+  }
 
   let body = document.getElementById("body");
 
@@ -17,14 +30,10 @@ export default function Header() {
     }
   }
 
-  function increaseCount() {
-    setCount(count + 1);
-  }
-
   return (
     <>
       <div className="header__container">
-        <a href="#" className="header__button cart">
+        <Link to="/cart" className="header__button cart">
           <i className="fa-solid fa-cart-shopping"></i>
           <p
             className={
@@ -33,10 +42,10 @@ export default function Header() {
                 : "cart__counter counter__light"
             }
           >
-            {count}
+            {handleSum(cartItems)}
           </p>
-        </a>
-        <div className="logo__container">
+        </Link>
+        <div onClick={() => navigate("/")} className="logo__container">
           <h1>gruve</h1>
         </div>
         <button onClick={handleTheme} className="header__button theme">
@@ -47,6 +56,7 @@ export default function Header() {
           )}
         </button>
       </div>
+      <Outlet />
     </>
   );
 }
